@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # ============================================
 #   Creates an SVG keymap diagram by parsing
