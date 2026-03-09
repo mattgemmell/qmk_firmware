@@ -34,15 +34,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #if (MATRIX_COLS <= 8)
 #    define print_matrix_header()  print("\nr/c 01234567\n")
 #    define print_matrix_row(row)  print_bin_reverse8(matrix_get_row(row))
-#    define ROW_SHIFTER ((uint8_t)1)
 #elif (MATRIX_COLS <= 16)
 #    define print_matrix_header()  print("\nr/c 0123456789ABCDEF\n")
 #    define print_matrix_row(row)  print_bin_reverse16(matrix_get_row(row))
-#    define ROW_SHIFTER ((uint16_t)1)
 #elif (MATRIX_COLS <= 32)
 #    define print_matrix_header()  print("\nr/c 0123456789ABCDEF0123456789ABCDEF\n")
 #    define print_matrix_row(row)  print_bin_reverse32(matrix_get_row(row))
-#    define ROW_SHIFTER  ((uint32_t)1)
 #endif
 
 #define MAIN_ROWMASK 0xFFF0;
@@ -52,16 +49,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
-
-__attribute__ ((weak))
-void matrix_init_quantum(void) {
-    matrix_init_kb();
-}
-
-__attribute__ ((weak))
-void matrix_scan_quantum(void) {
-    matrix_scan_kb();
-}
 
 __attribute__ ((weak))
 void matrix_init_kb(void) {
@@ -92,7 +79,7 @@ uint8_t matrix_cols(void) {
 }
 
 void matrix_init(void) {
-    matrix_init_quantum();
+    matrix_init_kb();
     uart_init(1000000);
 }
 
@@ -190,7 +177,7 @@ uint8_t matrix_scan(void)
     }
     //matrix_print();
 
-    matrix_scan_quantum();
+    matrix_scan_kb();
     return 1;
 }
 

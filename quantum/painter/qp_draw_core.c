@@ -2,12 +2,13 @@
 // Copyright 2021 Paul Cotter (@gr1mr3aver)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+#include "compiler_support.h"
 #include "qp_internal.h"
 #include "qp_comms.h"
 #include "qp_draw.h"
 #include "qgf.h"
 
-_Static_assert((QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE > 0) && (QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE % 16) == 0, "QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE needs to be a non-zero multiple of 16");
+STATIC_ASSERT((QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE > 0) && (QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE % 16) == 0, "QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE needs to be a non-zero multiple of 16");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Global variables
@@ -20,38 +21,38 @@ _Static_assert((QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE > 0) && (QUANTUM_PAINTER_PIX
 //
 
 // Buffer used for transmitting native pixel data to the downstream device.
-uint8_t qp_internal_global_pixdata_buffer[QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE];
+__attribute__((__aligned__(4))) uint8_t qp_internal_global_pixdata_buffer[QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE];
 
 // Static buffer to contain a generated color palette
-static bool       generated_palette = false;
-static int16_t    generated_steps   = -1;
-static qp_pixel_t interpolated_fg_hsv888;
-static qp_pixel_t interpolated_bg_hsv888;
+static bool                                       generated_palette = false;
+static int16_t                                    generated_steps   = -1;
+__attribute__((__aligned__(4))) static qp_pixel_t interpolated_fg_hsv888;
+__attribute__((__aligned__(4))) static qp_pixel_t interpolated_bg_hsv888;
 #if QUANTUM_PAINTER_SUPPORTS_256_PALETTE
-qp_pixel_t qp_internal_global_pixel_lookup_table[256];
+__attribute__((__aligned__(4))) qp_pixel_t qp_internal_global_pixel_lookup_table[256];
 #else
-qp_pixel_t qp_internal_global_pixel_lookup_table[16];
+__attribute__((__aligned__(4))) qp_pixel_t qp_internal_global_pixel_lookup_table[16];
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Helpers
 
 uint32_t qp_internal_num_pixels_in_buffer(painter_device_t device) {
-    struct painter_driver_t *driver = (struct painter_driver_t *)device;
+    painter_driver_t *driver = (painter_driver_t *)device;
     return ((QUANTUM_PAINTER_PIXDATA_BUFFER_SIZE * 8) / driver->native_bits_per_pixel);
 }
 
 // qp_setpixel internal implementation, but accepts a buffer with pre-converted native pixel. Only the first pixel is used.
 bool qp_internal_setpixel_impl(painter_device_t device, uint16_t x, uint16_t y) {
-    struct painter_driver_t *driver = (struct painter_driver_t *)device;
+    painter_driver_t *driver = (painter_driver_t *)device;
     return driver->driver_vtable->viewport(device, x, y, x, y) && driver->driver_vtable->pixdata(device, qp_internal_global_pixdata_buffer, 1);
 }
 
 // Fills the global native pixel buffer with equivalent pixels matching the supplied HSV
 void qp_internal_fill_pixdata(painter_device_t device, uint32_t num_pixels, uint8_t hue, uint8_t sat, uint8_t val) {
-    struct painter_driver_t *driver            = (struct painter_driver_t *)device;
-    uint32_t                 pixels_in_pixdata = qp_internal_num_pixels_in_buffer(device);
-    num_pixels                                 = QP_MIN(pixels_in_pixdata, num_pixels);
+    painter_driver_t *driver            = (painter_driver_t *)device;
+    uint32_t          pixels_in_pixdata = qp_internal_num_pixels_in_buffer(device);
+    num_pixels                          = MIN(pixels_in_pixdata, num_pixels);
 
     // Convert the color to native pixel format
     qp_pixel_t color = {.hsv888 = {.h = hue, .s = sat, .v = val}};
@@ -144,8 +145,8 @@ bool qp_internal_load_qgf_palette(qp_stream_t *stream, uint8_t bpp) {
 // Quantum Painter External API: qp_setpixel
 
 bool qp_setpixel(painter_device_t device, uint16_t x, uint16_t y, uint8_t hue, uint8_t sat, uint8_t val) {
-    struct painter_driver_t *driver = (struct painter_driver_t *)device;
-    if (!driver->validate_ok) {
+    painter_driver_t *driver = (painter_driver_t *)device;
+    if (!driver || !driver->validate_ok) {
         qp_dprintf("qp_setpixel: fail (validation_ok == false)\n");
         return false;
     }
@@ -174,8 +175,8 @@ bool qp_line(painter_device_t device, uint16_t x0, uint16_t y0, uint16_t x1, uin
     }
 
     qp_dprintf("qp_line(%d, %d, %d, %d): entry\n", (int)x0, (int)y0, (int)x1, (int)y1);
-    struct painter_driver_t *driver = (struct painter_driver_t *)device;
-    if (!driver->validate_ok) {
+    painter_driver_t *driver = (painter_driver_t *)device;
+    if (!driver || !driver->validate_ok) {
         qp_dprintf("qp_line: fail (validation_ok == false)\n");
         return false;
     }
@@ -228,20 +229,20 @@ bool qp_line(painter_device_t device, uint16_t x0, uint16_t y0, uint16_t x1, uin
 // Quantum Painter External API: qp_rect
 
 bool qp_internal_fillrect_helper_impl(painter_device_t device, uint16_t left, uint16_t top, uint16_t right, uint16_t bottom) {
-    uint32_t                 pixels_in_pixdata = qp_internal_num_pixels_in_buffer(device);
-    struct painter_driver_t *driver            = (struct painter_driver_t *)device;
+    uint32_t          pixels_in_pixdata = qp_internal_num_pixels_in_buffer(device);
+    painter_driver_t *driver            = (painter_driver_t *)device;
 
-    uint16_t l = QP_MIN(left, right);
-    uint16_t r = QP_MAX(left, right);
-    uint16_t t = QP_MIN(top, bottom);
-    uint16_t b = QP_MAX(top, bottom);
+    uint16_t l = MIN(left, right);
+    uint16_t r = MAX(left, right);
+    uint16_t t = MIN(top, bottom);
+    uint16_t b = MAX(top, bottom);
     uint16_t w = r - l + 1;
     uint16_t h = b - t + 1;
 
     uint32_t remaining = w * h;
     driver->driver_vtable->viewport(device, l, t, r, b);
     while (remaining > 0) {
-        uint32_t transmit = QP_MIN(remaining, pixels_in_pixdata);
+        uint32_t transmit = MIN(remaining, pixels_in_pixdata);
         if (!driver->driver_vtable->pixdata(device, qp_internal_global_pixdata_buffer, transmit)) {
             return false;
         }
@@ -252,17 +253,17 @@ bool qp_internal_fillrect_helper_impl(painter_device_t device, uint16_t left, ui
 
 bool qp_rect(painter_device_t device, uint16_t left, uint16_t top, uint16_t right, uint16_t bottom, uint8_t hue, uint8_t sat, uint8_t val, bool filled) {
     qp_dprintf("qp_rect(%d, %d, %d, %d): entry\n", (int)left, (int)top, (int)right, (int)bottom);
-    struct painter_driver_t *driver = (struct painter_driver_t *)device;
-    if (!driver->validate_ok) {
+    painter_driver_t *driver = (painter_driver_t *)device;
+    if (!driver || !driver->validate_ok) {
         qp_dprintf("qp_rect: fail (validation_ok == false)\n");
         return false;
     }
 
     // Cater for cases where people have submitted the coordinates backwards
-    uint16_t l = QP_MIN(left, right);
-    uint16_t r = QP_MAX(left, right);
-    uint16_t t = QP_MIN(top, bottom);
-    uint16_t b = QP_MAX(top, bottom);
+    uint16_t l = MIN(left, right);
+    uint16_t r = MAX(left, right);
+    uint16_t t = MIN(top, bottom);
+    uint16_t b = MAX(top, bottom);
     uint16_t w = r - l + 1;
     uint16_t h = b - t + 1;
 
@@ -280,7 +281,7 @@ bool qp_rect(painter_device_t device, uint16_t left, uint16_t top, uint16_t righ
         ret = qp_internal_fillrect_helper_impl(device, l, t, r, b);
     } else {
         // Fill up the pixdata buffer with the required number of native pixels
-        qp_internal_fill_pixdata(device, QP_MAX(w, h), hue, sat, val);
+        qp_internal_fill_pixdata(device, MAX(w, h), hue, sat, val);
 
         // Draw 4x filled single-width rects to create an outline
         if (!qp_internal_fillrect_helper_impl(device, l, t, r, t) || !qp_internal_fillrect_helper_impl(device, l, b, r, b) || !qp_internal_fillrect_helper_impl(device, l, t + 1, l, b - 1) || !qp_internal_fillrect_helper_impl(device, r, t + 1, r, b - 1)) {

@@ -18,8 +18,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifndef DYNAMIC_KEYMAP_LAYER_COUNT
+#    define DYNAMIC_KEYMAP_LAYER_COUNT 4
+#endif
+
+#ifndef DYNAMIC_KEYMAP_MACRO_COUNT
+#    define DYNAMIC_KEYMAP_MACRO_COUNT 16
+#endif
+
 uint8_t  dynamic_keymap_get_layer_count(void);
-void *   dynamic_keymap_key_to_eeprom_address(uint8_t layer, uint8_t row, uint8_t column);
 uint16_t dynamic_keymap_get_keycode(uint8_t layer, uint8_t row, uint8_t column);
 void     dynamic_keymap_set_keycode(uint8_t layer, uint8_t row, uint8_t column, uint16_t keycode);
 #ifdef ENCODER_MAP_ENABLE
@@ -54,6 +61,12 @@ void dynamic_keymap_set_buffer(uint16_t offset, uint16_t size, uint8_t *data);
 // strings, the last byte must be a null when at maximum capacity,
 // and it not being null means the buffer can be considered in an
 // invalid state.
+//
+// The buffer *may* contain less macro strings than the maximum.
+// This allows a higher maximum number of macros without requiring that
+// number of nulls to be in the buffer.
+// Note: dynamic_keymap_macro_get_count() returns the maximum that *can* be
+// stored, not the current count of macros in the buffer.
 
 uint8_t  dynamic_keymap_macro_get_count(void);
 uint16_t dynamic_keymap_macro_get_buffer_size(void);

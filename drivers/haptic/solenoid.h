@@ -47,14 +47,13 @@
 
 #ifndef SOLENOID_PINS
 #    ifdef SOLENOID_PIN
-#        define SOLENOID_PINS \
-            { SOLENOID_PIN }
+#        define SOLENOID_PINS {SOLENOID_PIN}
 #    else
 #        error SOLENOID_PINS array not defined
 #    endif
 #endif
 
-void solenoidbuzz_on(void);
+void solenoid_buzz_on(void);
 void solenoid_buzz_off(void);
 void solenoid_set_buzz(uint8_t buzz);
 
