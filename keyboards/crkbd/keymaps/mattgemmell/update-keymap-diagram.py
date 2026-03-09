@@ -8,8 +8,8 @@
 #   This is COMPLETELY SPECIFIC to my map!
 #
 #   by Matt Gemmell
-#   Web:        https://mattgemmell.com/
-#   Twitter:    https://twitter.com/mattgemmell
+#   Web:        https://mattgemmell.scot/
+#   Mastodon:   https://mastodon.scot/@mattgemmell
 #   GitHub:     https://github.com/mattgemmell
 #
 # ============================================
@@ -58,7 +58,7 @@ keycode_transparent = "_______"
 transparent_css_class = "transparent" # as above, applied to transparent keys (falling through to base layer; i.e. keycode_transparent above).
 # Note: Transparent keys (on non-base layers) will be labelled identically to the corresponding key on the base layer.
 annotation_keycodes = { # keycodes with annotations
-    "layer": {"keycodes": ["NAV", "NUM", "B_NUM", "SPC_NAV"],
+    "layer": {"keycodes": ["NAV", "NUM", "B_NUM", "SPC_NAV", "ENT_NUM"],
               "label": "layer"},
     #"num": {"keycodes": ["NUM", "B_NUM"],
     #          "label": "num"},
@@ -66,13 +66,21 @@ annotation_keycodes = { # keycodes with annotations
     #          "label": "nav"},
     "one-shot": {"keycodes": ["OS_SHFT", "OS_CTRL", "OS_ALT", "OS_CMD", "OS_CAPS"],
                  "label": "one-shot"},
+    "hrm-shift": {"keycodes": ["HRM_A_LSFT", "HRM_QUOT_RSFT"],
+              "label": "shift"},
+    "hrm-control": {"keycodes": ["HRM_S_LCTL", "HRM_L_RCTL"],
+              "label": "control"},
+    "hrm-option": {"keycodes": ["HRM_D_LALT", "HRM_K_RALT"],
+              "label": "option"},
+    "hrm-command": {"keycodes": ["HRM_F_LGUI", "HRM_J_RGUI"],
+              "label": "command"},
     held_css_class: {"keycodes": [], # special case, to provide label for held layer keys
                      "label": "held"},
 }
 layer_held_keycodes = { # keycodes whose keys are implicitly held down on a given layer, gaining the held_css_class specified above. Key is the layer, value is an array of keys implicitly held on that layer.
   "_NAV": ["NAV", "SPC_NAV"],
-  "_NUM": ["NUM", "B_NUM"],
-  "_ADJUST": ["NUM", "NAV", "SPC_NAV", "B_NUM"]
+  "_NUM": ["NUM", "B_NUM", "ENT_NUM"],
+  "_ADJUST": ["NUM", "NAV", "SPC_NAV", "B_NUM", "ENT_NUM"]
 }
 layer_note_height = 0 # text box height; set font attributes in CSS below
 layer_note_spacing = 0 # vertical spacing between layer diagram and its layer note
@@ -188,7 +196,7 @@ svg_header = '''<svg width="100%" height="auto" viewBox="0 0 ${svg_width} ${svg_
     .kc_up, .kc_down, .kc_left, .kc_right,
     .kc_ent, .ent_shft, .kc_bspc, /*.os_caps,*/ .kc_esc,
     .kc_lsft, .os_shft, .os_ctrl, .os_alt, .os_cmd, .kc_lcmd, .kc_lalt,
-    .kc_mac_spotlight, .kc_pgup, .kc_pgdown,
+    .kc_mac_spotlight, .kc_pgup, .kc_pgdn,
     .kc_mac_undo, .kc_mac_redo, .kc_tab,
     /*.kc_mac_cut,*/ .kc_spc, .kc_mac_lock_scrn,
     .kc_brightness_up, .kc_brightness_down/*,
@@ -367,6 +375,8 @@ key_names = {
     "KC_MAC_SPOTLIGHT": {"label": "&#8981;", "title": "Spotlight"},
     "KC_EN_DASH": {"label": "En Dash", "title": "En Dash"},
     "KC_EM_DASH": {"label": "Em Dash", "title": "Em Dash"},
+    "KC_BACK_MG": {"label": "Back", "title": "Back"},
+    "KC_FWD_MG": {"label": "Forward", "title": "Forward"},
     "KC_LSFT": {"label": "&#8679;", "title": "Shift"},
     "OS_SHFT": {"label": "&#8679;", "title": "Shift — One-Shot"},
     "OS_CTRL": {"label": "&#94;", "title": "Control — One-Shot"},
@@ -374,12 +384,21 @@ key_names = {
     "OS_CMD": {"label": "&#8984;", "title": "Command — One-Shot"},
     #"OS_CAPS": {"label": "&#127760;", "title": "Globe — One-Shot"},
     "OS_CAPS": {"label": "Globe", "title": "Globe — One-Shot"},
+    "HRM_A_LSFT": {"label": "A", "title": "A (tap), Shift (held)"},
+    "HRM_S_LCTL": {"label": "S", "title": "S (tap), Control (held)"},
+    "HRM_D_LALT": {"label": "D", "title": "D (tap), Option (held)"},
+    "HRM_F_LGUI": {"label": "F", "title": "F (tap), Command (held)"},
+    "HRM_J_RGUI": {"label": "J", "title": "J (tap), Command (held)"},
+    "HRM_K_RALT": {"label": "K", "title": "K (tap), Option (held)"},
+    "HRM_L_RCTL": {"label": "L", "title": "L (tap), Control (held)"},
+    "HRM_QUOT_RSFT": {"label": "'", "title": "Quote (tap), Shift (held)"},
     "KC_LCMD": {"label": "&#8984;", "title": "Command"},
     "KC_LALT": {"label": "&#8997;", "title": "Option"},
     "APP_SWITCH_FRWD": {"label": "Switch App", "title": "Next App"},
     "NAV": {"label": "Nav", "title": "Nav"},
     "NUM": {"label": "Num", "title": "Num"},
-    #"SPC_NAV": {"label": "&#9251;", "title": "Space"},
+    "SPC_NAV": {"label": "&#9251;", "title": "Space"},
+    "ENT_NUM": {"label": "&#9166;", "title": "Enter"},
     #"B_NUM": {"label": "B", "title": "B"},
     #"KC_AUDIO_VOL_DOWN": {"label": "&#128265;", "title": "Volume Down"},
     "KC_AUDIO_VOL_DOWN": {"label": "Volume Down", "title": "Volume Down"},
@@ -388,15 +407,15 @@ key_names = {
     #"KC_AUDIO_VOL_UP": {"label": "&#128266;", "title": "Volume Up"},
     "KC_AUDIO_VOL_UP": {"label": "Volume Up", "title": "Volume Up"},
     "KC_MS_ACCEL2": {"label": "Mouse Accel 2", "title": "Mouse Acceleration 2"},
-    "KC_MS_WH_DOWN": {"label": "Mouse Wheel Down", "title": "Mouse Wheel Down"},
-    "KC_MS_BTN1": {"label": "Left Click", "title": "Left Click"},
-    "KC_MS_UP": {"label": "Mouse &#9650;", "title": "Mouse Up"},
-    "KC_MS_BTN2": {"label": "Right Click", "title": "Right Click"},
+    "MS_WHLD": {"label": "Mouse Wheel Down", "title": "Mouse Wheel Down"},
+    "MS_BTN1": {"label": "Left Click", "title": "Left Click"},
+    "MS_UP": {"label": "Mouse &#9650;", "title": "Mouse Up"},
+    "MS_BTN2": {"label": "Right Click", "title": "Right Click"},
     "KC_MS_ACCEL1": {"label": "Mouse Accel 1", "title": "Mouse Acceleration 1"},
-    "KC_MS_WH_UP": {"label": "Mouse Wheel Up", "title": "Mouse Wheel Up"},
-    "KC_MS_LEFT": {"label": "Mouse &#9664;", "title": "Mouse Left"},
-    "KC_MS_DOWN": {"label": "Mouse &#9660;", "title": "Mouse Down"},
-    "KC_MS_RIGHT": {"label": "Mouse &#9654;", "title": "Mouse Right"},
+    "MS_WHLU": {"label": "Mouse Wheel Up", "title": "Mouse Wheel Up"},
+    "MS_LEFT": {"label": "Mouse &#9664;", "title": "Mouse Left"},
+    "MS_DOWN": {"label": "Mouse &#9660;", "title": "Mouse Down"},
+    "MS_RGHT": {"label": "Mouse &#9654;", "title": "Mouse Right"},
     "KC_BRIGHTNESS_UP": {"label": "&#9728;", "title": "Brightness Up"},
     #"KC_MEDIA_PREV_TRACK": {"label": "&#9198;", "title": "Previous Track"},
     "KC_MEDIA_PREV_TRACK": {"label": "Prev Track", "title": "Previous Track"},
@@ -417,7 +436,7 @@ key_names = {
     "KC_UP": {"label": "&#9650;", "title": "Up"},
     "KC_BSPC": {"label": "&#9003;", "title": "Backspace"},
     "KC_TAB": {"label": "&#8677;", "title": "Tab"},
-    "KC_PGDOWN": {"label": "&#8671;", "title": "Page Down"},
+    "KC_PGDN": {"label": "&#8671;", "title": "Page Down"},
     "KC_LEFT": {"label": "&#9664;", "title": "Left"},
     "KC_DOWN": {"label": "&#9660;", "title": "Down"},
     "KC_RIGHT": {"label": "&#9654;", "title": "Right"},
@@ -426,12 +445,12 @@ key_names = {
     "KC_SCLN": {"label": ";", "title": "Semicolon"},
     "KC_LPRN": {"label": "(", "title": "Left Parenthesis"},
     "KC_RPRN": {"label": ")", "title": "Right Parenthesis"},
-    "KC_BSLASH": {"label": "\\", "title": "Backslash"},
+    "KC_BSLS": {"label": "\\", "title": "Backslash"},
     "KC_MINUS": {"label": "-", "title": "Hyphen"},
     "KC_ASTR": {"label": "*", "title": "Asterisk"},
     "KC_EQUAL": {"label": "=", "title": "Equals"},
-    "KC_LBRACKET": {"label": "[", "title": "Left Bracket"},
-    "KC_RBRACKET": {"label": "]", "title": "Right Bracket"},
+    "KC_LBRC": {"label": "[", "title": "Left Bracket"},
+    "KC_RBRC": {"label": "]", "title": "Right Bracket"},
     "KC_GRAVE": {"label": "`", "title": "Backtick"},
     "KC_0": {"label": "0", "title": "0"},
     "KC_1": {"label": "1", "title": "1"},
@@ -649,7 +668,10 @@ def svg_for_layer(layer_id, start_y, show_title):
                 key_classes.append(transparent_css_class)
                 if layer_id != layer_order[0]:
                     # Obtain transparent key's effective keycode from base layer
-                    key = key_layers[layer_order[0]][key_index]
+                    try:
+                        key = key_layers[layer_order[0]][key_index]
+                    except IndexError:
+                        print(f"Error: Couldn't find base layer keycode for transparent key {key_index} in layer {layer_id}!")
 
             if key in key_names:
                 key_label = key_names[key]["label"]

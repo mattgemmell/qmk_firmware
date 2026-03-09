@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef LOCKING_SUPPORT_ENABLE
 #undef LOCKING_RESYNC_ENABLE
 
+#define SPLIT_USB_DETECT
 #define SPLIT_LAYER_STATE_ENABLE
 
 #undef NO_ACTION_ONESHOT
@@ -49,8 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_AUTO_SHIFT_ALPHA
 #define RGB_MATRIX_STARTUP_SPD 60
 #define TAPPING_TERM 250 // default 200
-#define IGNORE_MOD_TAP_INTERRUPT
-#define HOLD_ON_OTHER_KEY_PRESS
+//#define HOLD_ON_OTHER_KEY_PRESS
 #define TAPPING_TOGGLE  1
 #define MOUSEKEY_INTERVAL           20
 #define MOUSEKEY_DELAY              0

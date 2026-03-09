@@ -100,7 +100,7 @@
     .kc_up, .kc_down, .kc_left, .kc_right,
     .kc_ent, .ent_shft, .kc_bspc, /*.os_caps,*/ .kc_esc,
     .kc_lsft, .os_shft, .os_ctrl, .os_alt, .os_cmd, .kc_lcmd, .kc_lalt,
-    .kc_mac_spotlight, .kc_pgup, .kc_pgdown,
+    .kc_mac_spotlight, .kc_pgup, .kc_pgdn,
     .kc_mac_undo, .kc_mac_redo, .kc_tab,
     /*.kc_mac_cut,*/ .kc_spc, .kc_mac_lock_scrn,
     .kc_brightness_up, .kc_brightness_down/*,
@@ -247,19 +247,19 @@
 </foreignObject>
 
 <foreignObject x="395" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Wheel Down (KC_MS_WH_DOWN)" class="mg_orange kc_ms_wh_down _adjust"><div class="glyph">Mouse Wheel Down</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Wheel Down (MS_WHLD)" class="mg_orange ms_whld _adjust"><div class="glyph">Mouse Wheel Down</div></div>
 </foreignObject>
 
 <foreignObject x="464" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Left Click (KC_MS_BTN1)" class="mg___blue kc_ms_btn1 _adjust"><div class="glyph">Left Click</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Left Click (MS_BTN1)" class="mg___blue ms_btn1 _adjust"><div class="glyph">Left Click</div></div>
 </foreignObject>
 
 <foreignObject x="533" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Up (KC_MS_UP)" class="mg__white kc_ms_up _adjust"><div class="glyph">Mouse &#9650;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Up (MS_UP)" class="mg__white ms_up _adjust"><div class="glyph">Mouse &#9650;</div></div>
 </foreignObject>
 
 <foreignObject x="602" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Right Click (KC_MS_BTN2)" class="mg___blue kc_ms_btn2 _adjust"><div class="glyph">Right Click</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Right Click (MS_BTN2)" class="mg___blue ms_btn2 _adjust"><div class="glyph">Right Click</div></div>
 </foreignObject>
 
 <foreignObject x="671" y="14" width="65" height="55" class="text-container">
@@ -267,39 +267,39 @@
 </foreignObject>
 
 <foreignObject x="14" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Shift — One-Shot (OS_SHFT)" class="mg___blue os_shft _adjust"><div class="glyph">&#8679;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="A (tap), Shift (held) (Transparent)" class="transparent mg___blue hrm_a_lsft _adjust"><div class="glyph">A</div><div class="annotation hrm-shift">shift</div></div>
 </foreignObject>
 
 <foreignObject x="83" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Control — One-Shot (OS_CTRL)" class="mg___blue os_ctrl _adjust"><div class="glyph">&#94;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="S (tap), Control (held) (Transparent)" class="transparent mg___blue hrm_s_lctl _adjust"><div class="glyph">S</div><div class="annotation hrm-control">control</div></div>
 </foreignObject>
 
 <foreignObject x="152" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Option — One-Shot (OS_ALT)" class="mg___blue os_alt _adjust"><div class="glyph">&#8997;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="D (tap), Option (held) (Transparent)" class="transparent mg___blue hrm_d_lalt _adjust"><div class="glyph">D</div><div class="annotation hrm-option">option</div></div>
 </foreignObject>
 
 <foreignObject x="221" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Command — One-Shot (OS_CMD)" class="mg___blue os_cmd _adjust"><div class="glyph">&#8984;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="F (tap), Command (held) (Transparent)" class="transparent mg___blue hrm_f_lgui _adjust"><div class="glyph">F</div><div class="annotation hrm-command">command</div></div>
 </foreignObject>
 
 <foreignObject x="290" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Globe — One-Shot (OS_CAPS)" class="mg___blue os_caps _adjust"><div class="glyph">Globe</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank ___off___ _adjust"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="395" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Wheel Up (KC_MS_WH_UP)" class="mg_orange kc_ms_wh_up _adjust"><div class="glyph">Mouse Wheel Up</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Wheel Up (MS_WHLU)" class="mg_orange ms_whlu _adjust"><div class="glyph">Mouse Wheel Up</div></div>
 </foreignObject>
 
 <foreignObject x="464" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Left (KC_MS_LEFT)" class="mg__white kc_ms_left _adjust"><div class="glyph">Mouse &#9664;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Left (MS_LEFT)" class="mg__white ms_left _adjust"><div class="glyph">Mouse &#9664;</div></div>
 </foreignObject>
 
 <foreignObject x="533" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Down (KC_MS_DOWN)" class="mg__white kc_ms_down _adjust"><div class="glyph">Mouse &#9660;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Down (MS_DOWN)" class="mg__white ms_down _adjust"><div class="glyph">Mouse &#9660;</div></div>
 </foreignObject>
 
 <foreignObject x="602" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Right (KC_MS_RIGHT)" class="mg__white kc_ms_right _adjust"><div class="glyph">Mouse &#9654;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mouse Right (MS_RGHT)" class="mg__white ms_rght _adjust"><div class="glyph">Mouse &#9654;</div></div>
 </foreignObject>
 
 <foreignObject x="671" y="73" width="65" height="55" class="text-container">
@@ -347,27 +347,27 @@
 </foreignObject>
 
 <foreignObject x="152.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Shift (Transparent)" class="transparent ___off___ kc_lsft _adjust"><div class="glyph">&#8679;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _adjust"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="221.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Numpad &amp; Symbols Layer (Transparent)" class="transparent held mg_purple num _adjust"><div class="glyph">Num</div><div class="annotation layer">held</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Enter (Transparent)" class="transparent held mg_purple ent_num _adjust"><div class="glyph">&#9166;</div><div class="annotation layer">held</div></div>
 </foreignObject>
 
 <foreignObject x="290.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Command (Transparent)" class="transparent ___off___ kc_lcmd _adjust"><div class="glyph">&#8984;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _adjust"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="395.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (Transparent)" class="transparent ___off___ kc_spc _adjust"><div class="glyph">&#9251;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _adjust"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="464.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Navigation &amp; Shortcuts Layer (Transparent)" class="transparent held mg_purple nav _adjust"><div class="glyph">Nav</div><div class="annotation layer">held</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (Transparent)" class="transparent held mg_purple spc_nav _adjust"><div class="glyph">&#9251;</div><div class="annotation layer">held</div></div>
 </foreignObject>
 
 <foreignObject x="533.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mute (Transparent)" class="transparent ___off___ kc_audio_mute _adjust"><div class="glyph">Mute</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _adjust"><div class="glyph"></div></div>
 </foreignObject>
 
 </svg>

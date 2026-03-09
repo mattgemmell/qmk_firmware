@@ -100,7 +100,7 @@
     .kc_up, .kc_down, .kc_left, .kc_right,
     .kc_ent, .ent_shft, .kc_bspc, /*.os_caps,*/ .kc_esc,
     .kc_lsft, .os_shft, .os_ctrl, .os_alt, .os_cmd, .kc_lcmd, .kc_lalt,
-    .kc_mac_spotlight, .kc_pgup, .kc_pgdown,
+    .kc_mac_spotlight, .kc_pgup, .kc_pgdn,
     .kc_mac_undo, .kc_mac_redo, .kc_tab,
     /*.kc_mac_cut,*/ .kc_spc, .kc_mac_lock_scrn,
     .kc_brightness_up, .kc_brightness_down/*,
@@ -267,19 +267,19 @@
 </foreignObject>
 
 <foreignObject x="14" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="A (KC_A)" class="kc_a _base"><div class="glyph">A</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="A (tap), Shift (held) (HRM_A_LSFT)" class="hrm_a_lsft _base"><div class="glyph">A</div><div class="annotation hrm-shift">shift</div></div>
 </foreignObject>
 
 <foreignObject x="83" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="S (KC_S)" class="kc_s _base"><div class="glyph">S</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="S (tap), Control (held) (HRM_S_LCTL)" class="hrm_s_lctl _base"><div class="glyph">S</div><div class="annotation hrm-control">control</div></div>
 </foreignObject>
 
 <foreignObject x="152" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="D (KC_D)" class="kc_d _base"><div class="glyph">D</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="D (tap), Option (held) (HRM_D_LALT)" class="hrm_d_lalt _base"><div class="glyph">D</div><div class="annotation hrm-option">option</div></div>
 </foreignObject>
 
 <foreignObject x="221" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="F (KC_F)" class="kc_f _base"><div class="glyph">F</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="F (tap), Command (held) (HRM_F_LGUI)" class="hrm_f_lgui _base"><div class="glyph">F</div><div class="annotation hrm-command">command</div></div>
 </foreignObject>
 
 <foreignObject x="290" y="73" width="65" height="55" class="text-container">
@@ -291,19 +291,19 @@
 </foreignObject>
 
 <foreignObject x="464" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="J (KC_J)" class="kc_j _base"><div class="glyph">J</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="J (tap), Command (held) (HRM_J_RGUI)" class="hrm_j_rgui _base"><div class="glyph">J</div><div class="annotation hrm-command">command</div></div>
 </foreignObject>
 
 <foreignObject x="533" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="K (KC_K)" class="kc_k _base"><div class="glyph">K</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="K (tap), Option (held) (HRM_K_RALT)" class="hrm_k_ralt _base"><div class="glyph">K</div><div class="annotation hrm-option">option</div></div>
 </foreignObject>
 
 <foreignObject x="602" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="L (KC_L)" class="kc_l _base"><div class="glyph">L</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="L (tap), Control (held) (HRM_L_RCTL)" class="hrm_l_rctl _base"><div class="glyph">L</div><div class="annotation hrm-control">control</div></div>
 </foreignObject>
 
 <foreignObject x="671" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Quote (KC_QUOT)" class="kc_quot _base"><div class="glyph">'</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Quote (tap), Shift (held) (HRM_QUOT_RSFT)" class="hrm_quot_rsft _base"><div class="glyph">'</div><div class="annotation hrm-shift">shift</div></div>
 </foreignObject>
 
 <foreignObject x="14" y="132" width="65" height="55" class="text-container">
@@ -347,27 +347,27 @@
 </foreignObject>
 
 <foreignObject x="152.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Shift (KC_LSFT)" class="kc_lsft _base"><div class="glyph">&#8679;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank _base"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="221.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Numpad &amp; Symbols Layer (NUM)" class="num _base"><div class="glyph">Num</div><div class="annotation layer">layer</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Enter (ENT_NUM)" class="ent_num _base"><div class="glyph">&#9166;</div><div class="annotation layer">layer</div></div>
 </foreignObject>
 
 <foreignObject x="290.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Command (KC_LCMD)" class="kc_lcmd _base"><div class="glyph">&#8984;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank _base"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="395.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (KC_SPC)" class="kc_spc _base"><div class="glyph">&#9251;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank _base"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="464.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Navigation &amp; Shortcuts Layer (NAV)" class="nav _base"><div class="glyph">Nav</div><div class="annotation layer">layer</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (SPC_NAV)" class="spc_nav _base"><div class="glyph">&#9251;</div><div class="annotation layer">layer</div></div>
 </foreignObject>
 
 <foreignObject x="533.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mute (KC_AUDIO_MUTE)" class="kc_audio_mute _base"><div class="glyph">Mute</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank _base"><div class="glyph"></div></div>
 </foreignObject>
 
 </svg>

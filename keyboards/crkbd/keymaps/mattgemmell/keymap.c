@@ -32,11 +32,22 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define KC_MAC_SCRN_MRKP LGUI(LSFT(KC_4))
 //#define KC_MAC_HOME LGUI(KC_UP)
 //#define KC_MAC_END LGUI(KC_DOWN)
-#define KC_MAC_PREV_TAB LGUI(LSFT(KC_LBRACKET))
-#define KC_MAC_NEXT_TAB LGUI(LSFT(KC_RBRACKET))
+#define KC_MAC_PREV_TAB LGUI(LSFT(KC_LBRC))
+#define KC_MAC_NEXT_TAB LGUI(LSFT(KC_RBRC))
 #define KC_MAC_SPOTLIGHT LGUI(KC_SPC)
 #define KC_EN_DASH LALT(KC_MINUS)
 #define KC_EM_DASH LSFT(LALT(KC_MINUS))
+#define KC_BACK_MG LGUI(KC_LBRC)
+#define KC_FWD_MG LGUI(KC_RBRC)
+
+#define HRM_A_LSFT LSFT_T(KC_A)
+#define HRM_S_LCTL LCTL_T(KC_S)
+#define HRM_D_LALT LALT_T(KC_D)
+#define HRM_F_LGUI LGUI_T(KC_F)
+#define HRM_J_RGUI RGUI_T(KC_J)
+#define HRM_K_RALT RALT_T(KC_K)
+#define HRM_L_RCTL RCTL_T(KC_L)
+#define HRM_QUOT_RSFT RSFT_T(KC_QUOT)
 
 #ifdef RGB_MATRIX_ENABLE
     #define ___off___	{0,0,0}
@@ -78,28 +89,28 @@ enum my_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_split_3x6_3(
        XXXXXXX, KC_Q, KC_W, KC_E,    KC_R, KC_T,         KC_Y,   KC_U, KC_I,    KC_O,   KC_P,    XXXXXXX,
-       XXXXXXX, LSFT_T(KC_A), LCTL_T(KC_S), LALT_T(KC_D),    LGUI_T(KC_F), KC_G,         KC_H,   RGUI_T(KC_J), RALT_T(KC_K),    RCTL_T(KC_L),   RSFT_T(KC_QUOT), XXXXXXX,
+       XXXXXXX, HRM_A_LSFT, HRM_S_LCTL, HRM_D_LALT,    HRM_F_LGUI, KC_G,         KC_H,   HRM_J_RGUI, HRM_K_RALT,    HRM_L_RCTL,   HRM_QUOT_RSFT, XXXXXXX,
        XXXXXXX, KC_Z, KC_X, KC_C,    KC_V, KC_B,         KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, XXXXXXX,
                             XXXXXXX, ENT_NUM, XXXXXXX,      XXXXXXX, SPC_NAV,  XXXXXXX
   ),
 
   [_NAV] = LAYOUT_split_3x6_3(
       _______, KC_ESC,      XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,            KC_PGUP,   KC_MAC_PREV_TAB,  KC_UP,           KC_MAC_NEXT_TAB, KC_BSPC, _______,
-      _______, _______,      _______,    _______,            _______,            _______,            KC_PGDOWN, KC_LEFT,          KC_DOWN,         KC_RIGHT,        XXXXXXX, _______,
-      _______, KC_MAC_UNDO, KC_MAC_CUT, KC_MAC_COPY,       KC_MAC_PASTE,      KC_MAC_REDO,        XXXXXXX,   KC_MAC_SPOTLIGHT, XXXXXXX, XXXXXXX,         KC_ENT,  _______,
+      _______, _______,      _______,    _______,            _______,            XXXXXXX,            KC_PGDN, KC_LEFT,          KC_DOWN,         KC_RIGHT,        KC_SCLN, _______,
+      _______, KC_MAC_UNDO, KC_MAC_CUT, KC_MAC_COPY,       KC_MAC_PASTE,      KC_MAC_REDO,        XXXXXXX,   KC_MAC_SPOTLIGHT, KC_BACK_MG, KC_FWD_MG,         KC_ENT,  _______,
                                                          _______, _______, _______,             _______, _______, _______
   ),
 
   [_NUM] = LAYOUT_split_3x6_3(
-     _______, KC_TAB,     KC_SCLN,    KC_LPRN,     KC_RPRN,     KC_BSLASH,          KC_SLSH, KC_7, KC_8, KC_9, KC_MINUS,   _______,
-     _______, _______,     _______,    _______,      _______,      _______,            KC_COMM, KC_4, KC_5, KC_6, KC_EQUAL,   _______,
-     _______, KC_EN_DASH, KC_GRAVE, KC_LBRACKET, KC_RBRACKET, KC_EM_DASH,           KC_0, KC_1, KC_2, KC_3, KC_DOT,     _______,
+     _______, KC_TAB,     KC_GRAVE,    KC_LPRN,     KC_RPRN,     KC_BSLS,          KC_SLSH, KC_7, KC_8, KC_9, KC_EQUAL,   _______,
+     _______, _______,     _______,    _______,      _______,      XXXXXXX,            KC_COMM, KC_4, KC_5, KC_6, KC_MINUS,   _______,
+     _______, KC_EN_DASH, XXXXXXX, KC_LBRC, KC_RBRC, KC_EM_DASH,           KC_0, KC_1, KC_2, KC_3, KC_DOT,     _______,
                                            _______, _______, _______,            _______, _______, _______
   ),
 
   [_ADJUST] = LAYOUT_split_3x6_3(
-      _______, XXXXXXX, KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     XXXXXXX,            KC_MS_WH_DOWN,    KC_MS_BTN1, KC_MS_UP,   KC_MS_BTN2,  KC_MAC_LOCK_SCRN,   _______,
-      _______, _______, _______,             _______,              _______,              _______,            KC_MS_WH_UP,      KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT, XXXXXXX,   _______,
+      _______, XXXXXXX, KC_AUDIO_VOL_DOWN,   KC_AUDIO_MUTE,       KC_AUDIO_VOL_UP,     XXXXXXX,            MS_WHLD,    MS_BTN1, MS_UP,   MS_BTN2,  KC_MAC_LOCK_SCRN,   _______,
+      _______, _______, _______,             _______,              _______,              XXXXXXX,            MS_WHLU,      MS_LEFT, MS_DOWN, MS_RGHT, XXXXXXX,   _______,
       _______, XXXXXXX, KC_MEDIA_PREV_TRACK, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_NEXT_TRACK, XXXXXXX,            XXXXXXX,          XXXXXXX,    XXXXXXX,    XXXXXXX,     XXXXXXX, _______,
                                                                          _______, _______, _______,             _______, _______, _______
   )
@@ -111,13 +122,13 @@ const uint8_t PROGMEM ledmap[][42][3] = {
 /* Starts at layer 1; we don't apply lights to Base (layer 0). */
 [_NAV] = {
 MG_ORANGE, MG____RED, ___off___, ___off___, ___off___, ___off___, 				MG_ORANGE, MG___PINK, MG__WHITE, MG___PINK, MG____RED, MG_ORANGE,
-MG_ORANGE, MG___BLUE, MG___BLUE, MG___BLUE, MG___BLUE, ___off___, 				MG_ORANGE, MG__WHITE, MG__WHITE, MG__WHITE, ___off___, MG_ORANGE,
-MG_ORANGE, MG___PINK, ___off___, MG__GREEN, ___off___, ___off___, 				___off___, MG_YELLOW, ___off___, ___off___, MG___BLUE, MG_ORANGE,
+MG_ORANGE, MG___BLUE, MG___BLUE, MG___BLUE, MG___BLUE, ___off___, 				MG_ORANGE, MG__WHITE, MG__WHITE, MG__WHITE, MG_ORANGE, MG_ORANGE,
+MG_ORANGE, MG___PINK, ___off___, MG__GREEN, ___off___, ___off___, 				___off___, MG_YELLOW, MG___PINK, MG___PINK, MG___BLUE, MG_ORANGE,
 								 ___off___, ___off___, ___off___, 				___off___, MG_ORANGE, ___off___
 			},
 [_NUM] = {
-MG__GREEN, MG_ORANGE, MG_ORANGE, MG_YELLOW, MG_YELLOW, MG___PINK, 				MG___PINK, MG__GREEN, MG__GREEN, MG__GREEN, ___off___, MG__GREEN,
-MG__GREEN, MG___BLUE, MG___BLUE, MG___BLUE, MG___BLUE, ___off___, 				___off___, MG__GREEN, MG__GREEN, MG__GREEN, ___off___, MG__GREEN,
+MG__GREEN, MG_ORANGE, ___off___, MG_YELLOW, MG_YELLOW, MG___PINK, 				MG___PINK, MG__GREEN, MG__GREEN, MG__GREEN, MG__GREEN, MG__GREEN,
+MG__GREEN, MG___BLUE, MG___BLUE, MG___BLUE, MG___BLUE, ___off___, 				___off___, MG__GREEN, MG__GREEN, MG__GREEN, MG____RED, MG__GREEN,
 MG__GREEN, ___off___, ___off___, MG_ORANGE, MG_ORANGE, MG_PURPLE, 				MG__GREEN, MG__GREEN, MG__GREEN, MG__GREEN, ___off___, MG__GREEN,
 						   		 ___off___, MG__GREEN, ___off___, 				___off___, ___off___, ___off___
 			},
@@ -168,12 +179,12 @@ uint8_t ledIndexForKeymapIndex(uint8_t keyIndex) {
 	return g_led_config.matrix_co[row][col];
 }
 
-void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     uint8_t layerNum = get_highest_layer(layer_state);
     if (layerNum == 0) {
         rgb_matrix_set_color_all(0, 0, 0);
-        return;
+        return false;
     }
 
     // Per-key indicators
@@ -205,6 +216,8 @@ void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         RGB_MATRIX_INDICATOR_SET_COLOR(ledIndex, r, g, b);
     }
     */
+
+    return false;
 }
 
 #endif

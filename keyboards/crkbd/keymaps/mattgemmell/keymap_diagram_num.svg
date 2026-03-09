@@ -100,7 +100,7 @@
     .kc_up, .kc_down, .kc_left, .kc_right,
     .kc_ent, .ent_shft, .kc_bspc, /*.os_caps,*/ .kc_esc,
     .kc_lsft, .os_shft, .os_ctrl, .os_alt, .os_cmd, .kc_lcmd, .kc_lalt,
-    .kc_mac_spotlight, .kc_pgup, .kc_pgdown,
+    .kc_mac_spotlight, .kc_pgup, .kc_pgdn,
     .kc_mac_undo, .kc_mac_redo, .kc_tab,
     /*.kc_mac_cut,*/ .kc_spc, .kc_mac_lock_scrn,
     .kc_brightness_up, .kc_brightness_down/*,
@@ -231,7 +231,7 @@
 </foreignObject>
 
 <foreignObject x="83" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Semicolon (KC_SCLN)" class="mg_orange kc_scln _num"><div class="glyph">;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Backtick (KC_GRAVE)" class="___off___ kc_grave _num"><div class="glyph">`</div></div>
 </foreignObject>
 
 <foreignObject x="152" y="14" width="65" height="55" class="text-container">
@@ -243,7 +243,7 @@
 </foreignObject>
 
 <foreignObject x="290" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Backslash (KC_BSLASH)" class="mg___pink kc_bslash _num"><div class="glyph">\</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Backslash (KC_BSLS)" class="mg___pink kc_bsls _num"><div class="glyph">\</div></div>
 </foreignObject>
 
 <foreignObject x="395" y="14" width="65" height="55" class="text-container">
@@ -263,27 +263,27 @@
 </foreignObject>
 
 <foreignObject x="671" y="14" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Hyphen (KC_MINUS)" class="___off___ kc_minus _num"><div class="glyph">-</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Equals (KC_EQUAL)" class="mg__green kc_equal _num"><div class="glyph">=</div></div>
 </foreignObject>
 
 <foreignObject x="14" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Shift — One-Shot (OS_SHFT)" class="mg___blue os_shft _num"><div class="glyph">&#8679;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="A (tap), Shift (held) (Transparent)" class="transparent mg___blue hrm_a_lsft _num"><div class="glyph">A</div><div class="annotation hrm-shift">shift</div></div>
 </foreignObject>
 
 <foreignObject x="83" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Control — One-Shot (OS_CTRL)" class="mg___blue os_ctrl _num"><div class="glyph">&#94;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="S (tap), Control (held) (Transparent)" class="transparent mg___blue hrm_s_lctl _num"><div class="glyph">S</div><div class="annotation hrm-control">control</div></div>
 </foreignObject>
 
 <foreignObject x="152" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Option — One-Shot (OS_ALT)" class="mg___blue os_alt _num"><div class="glyph">&#8997;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="D (tap), Option (held) (Transparent)" class="transparent mg___blue hrm_d_lalt _num"><div class="glyph">D</div><div class="annotation hrm-option">option</div></div>
 </foreignObject>
 
 <foreignObject x="221" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Command — One-Shot (OS_CMD)" class="mg___blue os_cmd _num"><div class="glyph">&#8984;</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="F (tap), Command (held) (Transparent)" class="transparent mg___blue hrm_f_lgui _num"><div class="glyph">F</div><div class="annotation hrm-command">command</div></div>
 </foreignObject>
 
 <foreignObject x="290" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Globe — One-Shot (OS_CAPS)" class="mg___blue os_caps _num"><div class="glyph">Globe</div><div class="annotation one-shot">one-shot</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="395" y="73" width="65" height="55" class="text-container">
@@ -303,7 +303,7 @@
 </foreignObject>
 
 <foreignObject x="671" y="73" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Equals (KC_EQUAL)" class="___off___ kc_equal _num"><div class="glyph">=</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Hyphen (KC_MINUS)" class="mg____red kc_minus _num"><div class="glyph">-</div></div>
 </foreignObject>
 
 <foreignObject x="14" y="132" width="65" height="55" class="text-container">
@@ -311,15 +311,15 @@
 </foreignObject>
 
 <foreignObject x="83" y="132" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Backtick (KC_GRAVE)" class="___off___ kc_grave _num"><div class="glyph">`</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Blank" class="blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="152" y="132" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Left Bracket (KC_LBRACKET)" class="mg_orange kc_lbracket _num"><div class="glyph">[</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Left Bracket (KC_LBRC)" class="mg_orange kc_lbrc _num"><div class="glyph">[</div></div>
 </foreignObject>
 
 <foreignObject x="221" y="132" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Right Bracket (KC_RBRACKET)" class="mg_orange kc_rbracket _num"><div class="glyph">]</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Right Bracket (KC_RBRC)" class="mg_orange kc_rbrc _num"><div class="glyph">]</div></div>
 </foreignObject>
 
 <foreignObject x="290" y="132" width="65" height="55" class="text-container">
@@ -347,27 +347,27 @@
 </foreignObject>
 
 <foreignObject x="152.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Shift (Transparent)" class="transparent ___off___ kc_lsft _num"><div class="glyph">&#8679;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="221.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Numpad &amp; Symbols Layer (Transparent)" class="transparent held mg__green num _num"><div class="glyph">Num</div><div class="annotation layer">held</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Enter (Transparent)" class="transparent held mg__green ent_num _num"><div class="glyph">&#9166;</div><div class="annotation layer">held</div></div>
 </foreignObject>
 
 <foreignObject x="290.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Command (Transparent)" class="transparent ___off___ kc_lcmd _num"><div class="glyph">&#8984;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="395.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (Transparent)" class="transparent ___off___ kc_spc _num"><div class="glyph">&#9251;</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 <foreignObject x="464.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Navigation &amp; Shortcuts Layer (Transparent)" class="transparent ___off___ nav _num"><div class="glyph">Nav</div><div class="annotation layer">layer</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Space (Transparent)" class="transparent ___off___ spc_nav _num"><div class="glyph">&#9251;</div><div class="annotation layer">layer</div></div>
 </foreignObject>
 
 <foreignObject x="533.0" y="191" width="65" height="55" class="text-container">
-	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Mute (Transparent)" class="transparent ___off___ kc_audio_mute _num"><div class="glyph">Mute</div></div>
+	<div xmlns="http://www.w3.org/1999/xhtml" lang="en" title="Transparent" class="transparent blank ___off___ _num"><div class="glyph"></div></div>
 </foreignObject>
 
 </svg>
